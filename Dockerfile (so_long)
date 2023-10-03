@@ -1,0 +1,25 @@
+FROM debian:bullseye
+
+RUN apt-get update && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y libx11-dev
+RUN apt-get update && apt-get install -y libxext-dev
+RUN apt-get update && apt-get install -y xauth
+RUN apt-get update && apt-get install -y x11-apps
+RUN apt-get update && apt-get install -y libc6
+RUN apt-get update && apt-get install -y libbsd-dev
+RUN apt-get update && apt-get install -y valgrind
+RUN apt-get update && apt-get install -y gdb
+
+WORKDIR /app
+
+COPY src /app/src
+
+WORKDIR /app/src
+
+RUN make
+
+EXPOSE 80
+
+WORKDIR /app/src
+
+CMD ["./so_long" "map1.ber"]
