@@ -1,0 +1,5 @@
+CONTAINER ID   IMAGE       COMMAND                  CREATED              STATUS              PORTS                                        NAMES
+5314a307abf8   wordpress   "/usr/local/bin/word…"   3 seconds ago        Up 3 seconds        3000/tcp                                     zen_blackwell
+7f89019a5840   mariadb     "mysqld --bind-addre…"   About a minute ago   Up About a minute   4000/tcp                                     confident_solomon
+892de12c9b31   nginx       "nginx -g 'daemon of…"   3 minutes ago        Up 3 minutes        0.0.0.0:80->80/tcp, :::80->80/tcp, 443/tcp   clever_euler
+
