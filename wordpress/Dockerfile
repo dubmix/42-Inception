@@ -23,6 +23,6 @@ ENTRYPOINT ["/usr/local/bin/wordpress.sh"]
 
 WORKDIR /var/www/html/
 
-EXPOSE 3000
+EXPOSE 9000
 
 CMD ["/usr/sbin/php-fpm7.4", "-F"]

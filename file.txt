@@ -1,5 +1,22 @@
-CONTAINER ID   IMAGE       COMMAND                  CREATED              STATUS              PORTS                                        NAMES
-5314a307abf8   wordpress   "/usr/local/bin/word…"   3 seconds ago        Up 3 seconds        3000/tcp                                     zen_blackwell
-7f89019a5840   mariadb     "mysqld --bind-addre…"   About a minute ago   Up About a minute   4000/tcp                                     confident_solomon
-892de12c9b31   nginx       "nginx -g 'daemon of…"   3 minutes ago        Up 3 minutes        0.0.0.0:80->80/tcp, :::80->80/tcp, 443/tcp   clever_euler
+#!/bin/sh
 
+service mariadb start
+
+mysql -uroot
+
+if [ -d "/var/lib/mysql/$MYSQL_DATABASE" ]
+then
+
+	echo "Database already exists"
+else
+
+	mysql -uroot -e "CREATE DATABASE IF NOT EXISTS $DB_NAME;"
+	mysql -uroot -e "CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD';
+	GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'$DB_HOST';
+	FLUSH PRIVILEGES;"
+
+fi
+
+service mariadb stop
+
+exec "$@"

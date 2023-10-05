@@ -11,11 +11,6 @@ else
 	rm -rf latest.tar.gz
 	rm -rf wordpress
 	
-	export MYSQL_USER=pdelanno
-	export MYSQL_PASSWORD=qwe
-	export MYSQL_HOSTNAME=pdelanno
-	export MYSQL_DATABASE=db
-	
 	sed -i "s/username_here/$MYSQL_USER/g" wp-config-sample.php
 	sed -i "s/password_here/$MYSQL_PASSWORD/g" wp-config-sample.php
 	sed -i "s/localhost/$MYSQL_HOSTNAME/g" wp-config-sample.php
