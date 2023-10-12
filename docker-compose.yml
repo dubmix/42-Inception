@@ -17,11 +17,11 @@ services:
     build: ./mariadb
     volumes:
       - mariadb_data:/var/lib/mysql
+    env_file:
+      - .env
     networks:
       - network
     restart: always
-    env_file:
-      - .env
 
   wordpress:
     container_name: wordpress
@@ -33,6 +33,24 @@ services:
       - .env
     volumes:
       - wordpress_data:/var/www/html
+    networks:
+      - network
+
+  adminer:
+    container_name: adminer
+    build: ./adminer
+    restart: always
+    depends_on:
+      - mariadb
+    expose:
+      - "9000"
+    networks:
+      - network
+      
+  website:
+    container_name: website
+    build: ./website
+    restart: always
     networks:
       - network
 
