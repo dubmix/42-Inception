@@ -53,6 +53,13 @@ services:
     restart: always
     networks:
       - network
+      
+  nextjs:
+    container_name: nextjs
+    build: ./nextjs
+    restart: always
+    networks:
+      - network
 
 volumes:
   mariadb_data:

@@ -7,8 +7,8 @@ RUN yes | npx create-next-app myapp
 
 COPY ZAbj.gif /myapp/app/
 
-WORKDIR /myapp
+WORKDIR /myapp/
 
-EXPOSE 1313
+EXPOSE 3000
 
 CMD ["npm", "run", "dev"]
