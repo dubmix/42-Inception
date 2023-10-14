@@ -10,7 +10,9 @@ RUN chown -R mysql:mysql /var/run/mysqld
 RUN chmod 777 /var/run/mysqld
 
 COPY mariadb.sh /usr/local/bin/
+COPY wordpress.sql /usr/local/bin/
 RUN chmod +x /usr/local/bin/mariadb.sh
+RUN chmod +x /usr/local/bin/wordpress.sql
 
 EXPOSE 3306
 
