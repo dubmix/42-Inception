@@ -38,7 +38,7 @@ services:
 
   adminer:
     container_name: adminer
-    build: ./adminer
+    build: ./bonus/adminer
     restart: always
     depends_on:
       - mariadb
@@ -49,14 +49,14 @@ services:
       
   website:
     container_name: website
-    build: ./website
+    build: ./bonus/website
     restart: always
     networks:
       - network
       
   nextjs:
     container_name: nextjs
-    build: ./nextjs
+    build: ./bonus/nextjs
     restart: always
     networks:
       - network

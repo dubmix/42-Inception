@@ -5,13 +5,13 @@ all:
 		mkdir /home/pdelanno/data/mysql; \
 		echo "Data volumes created"; \
 	fi
-	@docker-compose up -d
+	@docker-compose -f ./src/docker-compose.yml up -d
 
 down:
-	@docker-compose down
+	@docker-compose -f ./src/docker-compose.yml down
 
 re:
-	@docker-compose up -d
+	@docker-compose -f ./src/docker-compose.yml up -d
 
 clean:
 	@docker system prune -a -f
